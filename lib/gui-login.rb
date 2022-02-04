@@ -48,6 +48,7 @@ def gui_login
 
     require 'lib/gui-saved-login'
     require 'lib/gui-manual-login'
+    require 'lib/gui-update-page'
 
     #
     # put it together and show the window
@@ -55,6 +56,7 @@ def gui_login
     silver = Gdk::RGBA::parse("#d3d3d3")
     @notebook = Gtk::Notebook.new
     @notebook.override_background_color(:normal, silver) if @theme_state == 'off'
+    @notebook.append_page(@gui_update_page_tab, Gtk::Label.new('Lich Update'))
     @notebook.append_page(@quick_game_entry_tab, Gtk::Label.new('Saved Entry'))
     @notebook.append_page(@game_entry_tab, Gtk::Label.new('Manual Entry'))
 
